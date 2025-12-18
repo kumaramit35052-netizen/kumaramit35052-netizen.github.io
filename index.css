@@ -6,11 +6,13 @@
     font-family:"Poppins",sans-serif;
 }
 
-/* BODY (TUMHARA HI) */
+/* ================= BODY (BLUE + RED + ORANGE MIX) ================= */
 body{
-    background: radial-gradient(circle at 10% 20%, rgba(255,100,150,0.08), transparent 10%),
-                radial-gradient(circle at 90% 80%, rgba(255,160,80,0.06), transparent 10%),
-                linear-gradient(180deg,#0f0f17,#12121a,#0b0b10);
+    background:
+        radial-gradient(circle at 15% 20%, rgba(13,110,253,0.25), transparent 35%),
+        radial-gradient(circle at 85% 25%, rgba(220,53,69,0.25), transparent 35%),
+        radial-gradient(circle at 50% 85%, rgba(253,126,20,0.25), transparent 40%),
+        linear-gradient(180deg,#0b1020,#120b15,#1a0f05);
     color:#fff;
     padding-top:80px;
     overflow-x:hidden;
@@ -24,7 +26,7 @@ body{
 /* ================= NAVBAR ================= */
 nav{
     width:100%;
-    background:rgba(20,20,35,0.6);
+    background: linear-gradient(90deg,#0d6efd,#dc3545,#fd7e14);
     padding:15px 30px;
     display:flex;
     justify-content:space-between;
@@ -35,6 +37,135 @@ nav{
     z-index:1000;
     backdrop-filter:blur(12px);
     box-shadow:0 10px 30px rgba(0,0,0,0.6);
+    transform:translateY(-100%);
+    animation:navDrop .8s ease forwards;
+}
+@keyframes navDrop{
+    to{transform:translateY(0)}
+}
+
+nav.scrolled{
+    background: linear-gradient(90deg,#084298,#b02a37,#fd7e14);
+}
+
+/* ================= LOGO (FAVICON + NAME) ================= */
+nav .logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:22px;
+    font-weight:700;
+    color:#fff;
+}
+
+nav .logo img{
+    width:70px;
+    height:70px;
+    max-width:70px;
+    max-height:70px;
+    object-fit:cover;
+    border-radius:50%;
+    box-shadow:0 0 12px rgba(255,255,255,0.4);
+}
+
+/* ================= NAV LINKS ================= */
+nav ul{
+    display:flex;
+    gap:22px;
+}
+nav ul li{list-style:none;}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    padding:8px 18px;
+    border-radius:25px;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    background: linear-gradient(45deg,#dc3545,#fd7e14);
+    box-shadow:0 0 20px rgba(253,126,20,.9);
+    transform:translateY(-2px);
+}
+
+/* ================= MOBILE MENU ================= */
+.menu-btn{
+    display:none;
+    font-size:26px;
+    cursor:pointer;
+    color:white;
+}
+
+/* ================= HERO ================= */
+.hero{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:center;
+    padding:80px 20px;
+    gap:30px;
+    text-align:center;
+}
+
+.hero img{
+    width:260px;
+    height:260px;
+    border-radius:50%;
+    object-fit:cover;
+    box-shadow:0 0 40px rgba(13,110,253,.35);
+    animation:float 4s ease-in-out infinite;
+}
+@keyframes float{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-15px)}
+}
+
+.hero h1{
+    font-size:36px;
+    background: linear-gradient(45deg,#0d6efd,#dc3545,#fd7e14);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    margin-bottom:10px;
+}
+
+.hero p{
+    font-size:18px;
+    color:#ddd;
+    margin-bottom:20px;
+}
+
+.hero button{
+    padding:12px 26px;
+    border:none;
+    background:linear-gradient(45deg,#0d6efd,#dc3545,#fd7e14);
+    color:white;
+    font-size:18px;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.3s;
+}
+.hero button:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 30px rgba(253,126,20,.5);
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:768px){
+    nav ul{
+        position:absolute;
+        top:65px;
+        left:0;
+        width:100%;
+        background: linear-gradient(180deg,#0d6efd,#dc3545,#fd7e14);
+        flex-direction:column;
+        text-align:center;
+        display:none;
+        padding:20px 0;
+    }
+    nav ul.show{display:flex;}
+    .menu-btn{display:block;}
+}    box-shadow:0 10px 30px rgba(0,0,0,0.6);
     transform:translateY(-100%);
     animation:navDrop .8s ease forwards;
 }
