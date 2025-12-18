@@ -6,9 +6,13 @@
     font-family:"Poppins",sans-serif;
 }
 
-/* BODY */
+/* ================= BODY (BLUE + RED + ORANGE MIX) ================= */
 body{
-    background:#1e1e2f;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(13,110,253,0.25), transparent 35%),
+        radial-gradient(circle at 85% 25%, rgba(220,53,69,0.25), transparent 35%),
+        radial-gradient(circle at 50% 85%, rgba(253,126,20,0.25), transparent 40%),
+        linear-gradient(180deg,#0b1020,#120b15,#1a0f05);
     color:#fff;
     padding-top:80px;
     overflow-x:hidden;
@@ -19,22 +23,171 @@ nav{
     position:fixed;
     top:0; left:0;
     width:100%;
-    background:#2c2c3e;
+    background: linear-gradient(90deg,#0d6efd,#dc3545,#fd7e14);
     padding:15px 30px;
     display:flex;
     justify-content:space-between;
     align-items:center;
     z-index:1000;
     animation:navDrop 0.8s ease;
+    box-shadow:0 10px 30px rgba(0,0,0,0.6);
 }
 @keyframes navDrop{
     from{transform:translateY(-100%);}
     to{transform:translateY(0);}
 }
 
+/* LOGO (FAVICON + NAME) */
 nav .logo{
-    color:#ff6b81;
+    display:flex;
+    align-items:center;
+    gap:10px;
     font-size:22px;
+    font-weight:700;
+    color:#fff;
+}
+
+nav .logo img{
+    width:70px;
+    height:70px;
+    max-width:70px;
+    max-height:70px;
+    object-fit:cover;
+    border-radius:50%;
+    box-shadow:0 0 12px rgba(255,255,255,0.4);
+}
+
+/* NAV LINKS */
+nav ul{
+    display:flex;
+    gap:20px;
+}
+nav ul li{list-style:none;}
+
+nav ul li a{
+    color:#fff;
+    text-decoration:none;
+    padding:8px 18px;
+    border-radius:20px;
+    transition:0.3s;
+}
+nav ul li a:hover{
+    background: linear-gradient(45deg,#dc3545,#fd7e14);
+    box-shadow:0 0 18px rgba(253,126,20,0.9);
+}
+
+/* MOBILE */
+.menu-btn{
+    display:none;
+    font-size:26px;
+    cursor:pointer;
+    color:#fff;
+}
+
+/* ================= ABOUT SECTION ================= */
+.about-container{
+    max-width:900px;
+    margin:40px auto;
+    display:flex;
+    flex-direction:column;
+    gap:35px;
+}
+
+.about-box{
+    background:rgba(44,44,62,0.85);
+    padding:30px;
+    border-radius:16px;
+    opacity:0;
+    transform:translateY(60px) scale(0.95);
+    transition:0.8s ease;
+    box-shadow:0 10px 30px rgba(0,0,0,0.6);
+    backdrop-filter:blur(8px);
+}
+
+.about-box.show{
+    opacity:1;
+    transform:translateY(0) scale(1);
+}
+
+.about-box h2{
+    background: linear-gradient(45deg,#0d6efd,#dc3545,#fd7e14);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    margin-bottom:15px;
+    position:relative;
+}
+
+.about-box h2::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    width:90px;
+    height:3px;
+    background: linear-gradient(90deg,#0d6efd,#dc3545,#fd7e14);
+}
+
+.about-box p{
+    line-height:1.7;
+    font-size:17px;
+}
+
+/* IMAGE */
+.about-box img{
+    width:100%;
+    max-width:600px;
+    display:block;
+    margin:20px auto;
+    border-radius:15px;
+    box-shadow:0 0 25px rgba(13,110,253,0.35);
+}
+
+/* ================= SOCIAL ================= */
+.social-sidebar{
+    position:fixed;
+    bottom:20px;
+    left:20px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.social-sidebar a{
+    background: linear-gradient(45deg,#dc3545,#fd7e14);
+    color:#fff;
+    padding:10px 14px;
+    border-radius:30px;
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    transition:0.3s;
+    animation:pulse 2s infinite;
+}
+@keyframes pulse{
+    0%{transform:scale(1)}
+    50%{transform:scale(1.08)}
+    100%{transform:scale(1)}
+}
+
+.social-sidebar img{width:24px;}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    nav ul{
+        position:absolute;
+        top:65px;
+        left:0;
+        width:100%;
+        background: linear-gradient(180deg,#0d6efd,#dc3545,#fd7e14);
+        display:none;
+        flex-direction:column;
+        text-align:center;
+        padding:15px 0;
+    }
+    nav ul.show{display:flex;}
+    .menu-btn{display:block;}
+}    font-size:22px;
     font-weight:700;
 }
 
