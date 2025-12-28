@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kumaramit35052-netizen.github.io/sitemap.xml
