@@ -55,3 +55,34 @@ function closePopup() {
   submitBtn.innerText = "Submit";
   alreadySubmitted = false;
 }
+/* 3D FORM TILT */
+
+const form3d = document.querySelector("form");
+
+form3d.addEventListener("mousemove",(e)=>{
+
+const rect = form3d.getBoundingClientRect();
+
+let x = e.clientX - rect.left;
+let y = e.clientY - rect.top;
+
+let centerX = rect.width/2;
+let centerY = rect.height/2;
+
+let rotateX = (y-centerY)/18;
+let rotateY = (centerX-x)/18;
+
+form3d.style.transform =
+`rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+
+});
+
+form3d.addEventListener("mouseleave",()=>{
+form3d.style.transform="rotateX(0) rotateY(0)";
+});
+document.addEventListener("mousemove", e => {
+
+document.body.style.backgroundPosition =
+`${e.clientX/30}px ${e.clientY/30}px`;
+
+});
