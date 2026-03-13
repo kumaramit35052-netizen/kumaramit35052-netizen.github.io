@@ -1,0 +1,27 @@
+const cards = document.querySelectorAll(".about-card");
+
+cards.forEach(card => {
+
+card.addEventListener("mousemove",(e)=>{
+
+let rect = card.getBoundingClientRect();
+
+let x = e.clientX - rect.left;
+let y = e.clientY - rect.top;
+
+let centerX = rect.width/2;
+let centerY = rect.height/2;
+
+let rotateX = (y-centerY)/12;
+let rotateY = (centerX-x)/12;
+
+card.style.transform = 
+`rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+
+});
+
+card.addEventListener("mouseleave",()=>{
+card.style.transform="rotateX(0) rotateY(0)";
+});
+
+});
